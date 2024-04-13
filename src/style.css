@@ -11,7 +11,6 @@ header{
 main {
     position: fixed;
     top : 150px;
-    right: 0;
     width: 50vw;
     text-align: justify;
     background-color: rgba(252, 249, 249, 0.5); 
@@ -20,7 +19,6 @@ main {
 }
 
 body {
-    background-image: url(Resources/bgDefault.png);
     background-repeat: no-repeat;
     background-position: top left;
     background-size: cover;

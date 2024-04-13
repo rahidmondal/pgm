@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
     <link rel="stylesheet" href="../style.css">
+    <script src="../scripts/index.js" defer></script>
+    <script src="../scripts/pg.js" defer></script>
 </head>
 <body>  
 <header>
@@ -25,19 +27,20 @@
             <label for="symbols">Symbols</label>
             <input type="checkbox" name="symbols" id="symbols">
             <label for="length">Length</label>
-            <input type="number" name="length" id="length" >
-            <input type="range" name="lengthRange" id="lengthRange" min="8" max="120" >
-            <input type="submit" value="Generate">
+            <input type="number" name="length" id="length" min="8" max="120">
+            <input type="submit" value="Generate" id="generate">
             <input type="reset" value="reset">
 
         </form>
-        <textarea name="passwordOutput" id="passwordOutput" cols="30" rows="10">Generated Password Will Be displayed Here
-        </textarea>
+        <div id="result">
+
+        </div>
+
         <button><a href="psc.html">Password Strength Checker</a></button>
 
     </main>
         <footer>
-        <p>Copyright©2023 Rahid Mondal </p>
+        <p>Copyright©2024 Rahid Mondal </p>
         <p>v1.0.0</p>
     </footer> 
 </body>
