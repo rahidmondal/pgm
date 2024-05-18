@@ -33,6 +33,12 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Build
+        run: |
+          # Add your build commands here
+          # For example, if you're using a static site generator like Jekyll or Hugo, you can build the site using their respective commands
+          # Replace the command below with your actual build command
+          echo "Building the site..."
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -41,3 +47,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          publish_dir: './src'  # replace './src' with the path to your directory containing index.html
