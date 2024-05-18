@@ -4,33 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secure PGM - Password Strength Checker</title>
-    <link rel="stylesheet" href="../style.css">
-    <script src="../scripts/index.js" defer></script>
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/psc.css">
+    <script src="../scripts/zxcvbn.js" defer></script>
+    <script src="../scripts/psc.js" defer></script>
 </head>
 <body>
+    <div class="container">
     <header>
         <h1>Secure PGM </h1>
-        <p>A Random Password Generator</p>
     </header>
     <main>
         <h2>Password Strength Checker</h2>
-        <form action="#">
             <label for="password">Password</label>
             <input type="text" name="password" id="password">
-            <input type="submit" value="Check Strength" id="checkBtn">
-            <input type="reset" value="Clear">
-        </form>
-        <p>Password Strength</p>
+
+        <div id="progressBarContainer">
+            <div id="progressBar"></div>
+        </div>
         <div class="results">
             <p>Password Summary</p>
         </div>
         <button><a href="pg.html">Password Generator</a></button>
     </main>
-    <footer>
+    <footer class="copyright">
         <p>Copyright©2023 Rahid Mondal </p>
         <p>v1.0.0</p>
     </footer>
-
+</div>
 </body>
 
 </html>

@@ -4,45 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
-    <link rel="stylesheet" href="../style.css">
-    <script src="../scripts/index.js" defer></script>
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/pg.css">
     <script src="../scripts/pg.js" defer></script>
 </head>
 <body>  
-<header>
-        <h1>Secure PGM </h1>
-        <p>A Random Password Generator</p>
-
+    <div class="container">
+    <header>
+        <h1>Secure PGM</h1>
     </header>   
+
     <main>
         <h2>Generate a Strong Password</h2>
-        <form action="#">
-            <p>Character</p>
+        <div>
             <label for="upperCase">UpperCase</label>
             <input type="checkbox" name="upperCase" id="upperCase">
+        </div>
+        <div>
             <label for="lowerCase">LowerCase</label>
             <input type="checkbox" name="lowerCase" id="lowerCase">
+        </div>
+        <div>
             <label for="numbers">Numbers</label>
             <input type="checkbox" name="numbers" id="numbers">
+        </div>
+        <div>
             <label for="symbols">Symbols</label>
             <input type="checkbox" name="symbols" id="symbols">
-            <label for="length">Length</label>
-            <input type="number" name="length" id="length" min="8" max="120">
-            <input type="submit" value="Generate" id="generate">
-            <input type="reset" value="reset">
-
-        </form>
-        <div id="result">
-
         </div>
-
+        <div>
+            <label for="length">Length</label>
+            <input type="range" name="length" id="length" min="8" max="120" value="8">
+            <span id="lengthValue">8</span>
+        </div>
+        <button id="generate">Generate</button>
+        <div id="result"></div>
+        <button id="copy">Copy</button>
         <button><a href="psc.html">Password Strength Checker</a></button>
-
     </main>
-        <footer>
-        <p>Copyright©2024 Rahid Mondal </p>
+
+    <footer class="copyright">
+        <p>&copy; 2024 Rahid Mondal</p>
         <p>v1.0.0</p>
     </footer> 
+</div>
 </body>
-
 </html>
