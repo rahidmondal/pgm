@@ -16,8 +16,13 @@ lengthInput.addEventListener("input", function() {
     lengthValue.textContent = this.value;
 });
 
-function generatePassword(event) {
-    event.preventDefault();
+function getRandomInt(max) {
+    const array = new Uint32Array(1);
+    window.crypto.getRandomValues(array);
+    return array[0] % max;
+}
+
+async function generatePassword(event) {
 
     const includeUppercase = uppercaseCheckbox.checked;
     const includeLowercase = lowercaseCheckbox.checked;
@@ -33,31 +38,31 @@ function generatePassword(event) {
     }
     if (includeUppercase) {
         charSet += upperCaseChars;
-        password += upperCaseChars[Math.floor(Math.random() * upperCaseChars.length)];
+        password += upperCaseChars[getRandomInt(upperCaseChars.length)];
     }
     if (includeLowercase) {
         charSet += lowerCaseChars;
-        password += lowerCaseChars[Math.floor(Math.random() * lowerCaseChars.length)];
+        password += lowerCaseChars[getRandomInt(lowerCaseChars.length)];
     }
     if (includeNumbers) {
         charSet += numberChars;
-        password += numberChars[Math.floor(Math.random() * numberChars.length)];
+        password += numberChars[getRandomInt(numberChars.length)];
     }
     if (includeSymbols) {
         charSet += symbolChars;
-        password += symbolChars[Math.floor(Math.random() * symbolChars.length)];
+        password += symbolChars[getRandomInt(symbolChars.length)];
     }
 
     for (let i = password.length; i < length; i++) {
         let randomChar;
         do {
-            randomChar = charSet[Math.floor(Math.random() * charSet.length)];
-        } while (randomChar === password[i - 1]);
+            randomChar = charSet[getRandomInt(charSet.length)];
+        } while (randomChar === password[i - 1]); 
         password += randomChar;
     }
 
-    password = password.split('').sort(() => Math.random() - 0.5).join('');
-
+    password = password.split('').sort(() => getRandomInt(2) - 1).join('');
+ 
     result.innerHTML = "<p>" + password + "</p>";
 }
 
@@ -72,5 +77,6 @@ document.getElementById('copy').addEventListener('click', function() {
     document.execCommand('copy');
     alert('Password copied to clipboard');
     document.body.removeChild(textarea);
-
 });
+
+
