@@ -12,7 +12,6 @@ passwordInput.addEventListener("input", function() {
 
     const time = document.createElement("p");
     time.textContent = `Crack Time: ${result.crack_times_display.offline_slow_hashing_1e4_per_second}`;
-
     const feedback = document.createElement("p");
     if (result.feedback.warning || result.feedback.suggestions.length) {
         feedback.textContent = `Feedback: ${result.feedback.warning} ${result.feedback.suggestions.join(' ')}`;
@@ -20,18 +19,19 @@ passwordInput.addEventListener("input", function() {
         feedback.textContent = 'Feedback: Good password!';
     }    
 
-    var strength = calculatePasswordStrength(this.value);
+    let strength = result.score ;
+    let crackTime = result.crack_times_display.offline_slow_hashing_1e4_per_second;
 
-    progressBar.style.width = strength + '%';
+    progressBar.style.width = (strength*25) + '%';
 
     progressBar.className = '';
-    if (strength <= 20) {
+    if (strength <= 0 ) {
         progressBar.classList.add('very-weak');
-    } else if (strength <= 40) {
+    } else if (strength <= 1 ) {
         progressBar.classList.add('weak');
-    } else if (strength <= 60) {
+    } else if (strength <= 2 ) {
         progressBar.classList.add('medium');
-    } else if (strength <= 80) {
+    } else if (strength <= 3 ) {
         progressBar.classList.add('strong');
     } else {
         progressBar.classList.add('very-strong');
@@ -42,6 +42,3 @@ passwordInput.addEventListener("input", function() {
     resultsDiv.appendChild(time);
     resultsDiv.appendChild(feedback);
 });
-function calculatePasswordStrength(password) {
-    return Math.min(Math.floor(password.length * 2), 100); 
-}
