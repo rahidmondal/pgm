@@ -4,16 +4,39 @@ const numberCheckbox = document.getElementById("numbers");
 const symbolsCheckbox = document.getElementById("symbols");
 const lengthInput = document.getElementById("length");
 const lengthValue = document.getElementById("lengthValue");
+const allCheck = document.getElementById("allCheck");
 const generateButton = document.getElementById("generate");
 const result = document.getElementById("result");
+const customAlert = document.getElementById("customAlertModal");
+const customAlertButton = document.getElementById("customAlertButton"); 
+const customAlterMessage = document.getElementById("customAlertMessage");   
+const copyButton = document.getElementById("copy");
 
 const upperCaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const lowerCaseChars = 'abcdefghijklmnopqrstuvwxyz';
 const numberChars = '0123456789';
 const symbolChars = '!@#$%^&*()';
 
+
+
+
+
 lengthInput.addEventListener("input", function() {
     lengthValue.textContent = this.value;
+});
+
+allCheck.addEventListener("click", function() {
+    if (allCheck.checked) {
+        uppercaseCheckbox.checked = true;
+        lowercaseCheckbox.checked = true;
+        numberCheckbox.checked = true;
+        symbolsCheckbox.checked = true;
+    } else {
+        uppercaseCheckbox.checked = false;
+        lowercaseCheckbox.checked = false;
+        numberCheckbox.checked = false;
+        symbolsCheckbox.checked = false;
+    }
 });
 
 function getRandomInt(max) {
@@ -22,7 +45,7 @@ function getRandomInt(max) {
     return array[0] % max;
 }
 
-async function generatePassword(event) {
+async function generatePassword() {
 
     const includeUppercase = uppercaseCheckbox.checked;
     const includeLowercase = lowercaseCheckbox.checked;
@@ -33,7 +56,11 @@ async function generatePassword(event) {
     let charSet = '';
     let password = '';
     if (!includeUppercase && !includeLowercase && !includeNumbers && !includeSymbols) {
-        alert('Please select at least one character type');
+        customAlert.style.display = "flex";
+        customAlterMessage.innerHTML = "Please select at least one character set";
+        customAlertButton.addEventListener("click", function() {
+            customAlert.style.display = "none";
+        });
         return;
     }
     if (includeUppercase) {
@@ -68,14 +95,18 @@ async function generatePassword(event) {
 
 generateButton.addEventListener("click", generatePassword);
 
-document.getElementById('copy').addEventListener('click', function() {
+copyButton.addEventListener('click', function() {
     var password = document.getElementById('result').innerText;
     var textarea = document.createElement('textarea');
     textarea.value = password;
     document.body.appendChild(textarea);
     textarea.select();
     document.execCommand('copy');
-    alert('Password copied to clipboard');
+    customAlert.style.display = "flex";
+    customAlterMessage.innerHTML = "Password copied to clipboard";
+    customAlertButton.addEventListener("click", function() {
+        customAlert.style.display = "none";
+    });
     document.body.removeChild(textarea);
 });
 

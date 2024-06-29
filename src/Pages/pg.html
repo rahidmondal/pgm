@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/pg.css">
     <script src="../scripts/pg.js" defer></script>
+
 </head>
 <body>  
     <div class="container">
@@ -15,27 +16,30 @@
     </header>   
 
     <main>
+
         <h2>Generate a Strong Password</h2>
-        <div>
-            <label for="upperCase">UpperCase</label>
-            <input type="checkbox" name="upperCase" id="upperCase">
+        <div id="customAlertModal" class="modal">
+            <div class="modal-content">
+                <h3>Alert</h3>
+                <p id="customAlertMessage"></p>
+                <button id="customAlertButton">OK</button>
+            </div>
         </div>
-        <div>
-            <label for="lowerCase">LowerCase</label>
-            <input type="checkbox" name="lowerCase" id="lowerCase">
-        </div>
-        <div>
-            <label for="numbers">Numbers</label>
-            <input type="checkbox" name="numbers" id="numbers">
-        </div>
-        <div>
-            <label for="symbols">Symbols</label>
-            <input type="checkbox" name="symbols" id="symbols">
-        </div>
-        <div>
-            <label for="length">Length</label>
-            <input type="range" name="length" id="length" min="8" max="120" value="8">
-            <span id="lengthValue">8</span>
+
+        <div class="options">
+                <label for="upperCase">UpperCase</label>
+                <input type="checkbox" name="upperCase" id="upperCase">
+                <label for="lowerCase">LowerCase</label>
+                <input type="checkbox" name="lowerCase" id="lowerCase">
+                <label for="numbers">Numbers</label>
+                <input type="checkbox" name="numbers" id="numbers">
+                <label for="symbols">Symbols</label>
+                <input type="checkbox" name="symbols" id="symbols">
+                <label for="length">Length</label>
+                <input type="range" name="length" id="length" min="8" max="120" value="8">
+                <span id="lengthValue">8</span>
+                <label for="allCheck">All Check</label>
+                <input type="checkbox" name="allCheck" id="allCheck">                
         </div>
         <button id="generate">Generate</button>
         <div id="result"></div>

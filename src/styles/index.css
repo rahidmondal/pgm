@@ -67,3 +67,11 @@ button:hover {
     border-radius: 0 0 10px 10px;
 }
 
+.modal {
+    background-color: rgba(171, 120, 230, 0.918);
+    border: #130404 solid 2px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
