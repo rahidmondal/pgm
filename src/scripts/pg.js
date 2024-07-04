@@ -12,6 +12,10 @@ const customAlertButton = document.getElementById("customAlertButton");
 const customAlterMessage = document.getElementById("customAlertMessage");
 const copyButton = document.getElementById("copy");
 
+
+
+
+
 const upperCaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const lowerCaseChars = 'abcdefghijklmnopqrstuvwxyz';
 const numberChars = '0123456789';

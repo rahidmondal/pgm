@@ -1,9 +1,7 @@
-
-
 :root {
     --primary-bg-color: #f8f9fa;
     --secondary-bg-color: #e5e5f7;
-    --container-bg-color: #f3edfd;
+    --container-bg-color: #e9dcff;
     --primary-text-color: #343a40;
     --secondary-text-color: #6c757d;
     --border-color: #dee2e6;
@@ -48,7 +46,8 @@ body {
     transform: translateY(-5px);
 }
 
-h1, h2 {
+h1,
+h2 {
     text-align: center;
 }
 
@@ -86,7 +85,8 @@ button a {
         max-width: none;
     }
 
-    h1, h2 {
+    h1,
+    h2 {
         font-size: 1.2rem;
     }
 }
