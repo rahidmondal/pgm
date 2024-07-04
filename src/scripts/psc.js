@@ -11,7 +11,7 @@ passwordInput.addEventListener("input", function() {
     score.textContent = `Score: ${result.score}`;
 
     const time = document.createElement("p");
-    time.textContent = `Crack Time: ${result.crack_times_display.offline_slow_hashing_1e4_per_second} From (Offline Slow Hashing)`;
+    time.textContent = `Crack Time (Offline Slow Hashing): ${result.crack_times_display.offline_slow_hashing_1e4_per_second}  `;
     const feedback = document.createElement("p");
     if (result.feedback.warning || result.feedback.suggestions.length) {
         feedback.textContent = `Feedback: ${result.feedback.warning} ${result.feedback.suggestions.join(' ')}`;
