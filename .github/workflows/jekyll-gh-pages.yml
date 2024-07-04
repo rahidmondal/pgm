@@ -1,16 +1,17 @@
 name: Jekyll GH Pages Deployment Workflow 
+name: Jekyll GitHub Pages
 
 on:
   push:
     branches: ["master"]
 
   workflow_dispatch:
+    branches: ["master"]
 
 permissions:
   contents: read
   pages: write
   id-token: write
-
 
 concurrency:
   group: "pages"
@@ -22,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
@@ -31,7 +32,10 @@ jobs:
           source: ./src
           destination: ./_site
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v2
+          with:
+            name: jekyll-site
+            path: ./_site
 
   # Deployment job
   deploy:
@@ -42,5 +46,7 @@ jobs:
     needs: build
     steps:
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
