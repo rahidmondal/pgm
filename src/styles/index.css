@@ -32,8 +32,8 @@ body {
 }
 
 .container {
-    width: 90%;
-    max-width: 600px;
+    width: 80%;
+    max-width: 400px;
     padding: 20px;
     background-color: var(--container-bg-color);
     border-radius: 10px;
@@ -79,17 +79,7 @@ button a {
     text-decoration: none;
 }
 
-@media (max-width: 768px) {
-    .container {
-        width: 95%;
-        max-width: none;
-    }
 
-    h1,
-    h2 {
-        font-size: 1.2rem;
-    }
-}
 
 
 .copyright {
