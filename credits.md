@@ -1,6 +1,4 @@
-# Credits 
-
-
+# Credits
 
 ### The password strength checker : [zxcvbn](https://github.com/dropbox/zxcvbn)
 
@@ -27,7 +25,7 @@
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     ```
 
-### Favicon 
+### Favicon
 
     This favicon was generated using the following font:
 
@@ -35,3 +33,10 @@
     - Font Author: Copyright 2011 Google Inc. All Rights Reserved.
     - Font Source: https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Me5WZLCzYlKw.ttf
     - Font License: Apache License, version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html)
+
+### Core Technologies:
+
+- [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
+- [Vanilla CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS) (with CSS Variables for theme switching)
+- [Vanilla JavaScript (ES6+)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [Service Workers & Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps) (PWA Features)
