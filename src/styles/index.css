@@ -18,6 +18,44 @@
   --radius-lg: 16px;
 
   --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.1);
+  --toast-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+  --primary-bg-color: #121212;
+  --secondary-bg-color: #1e1e2e;
+  --container-bg-color: #1e1b26;
+  --panel-bg: rgba(30, 30, 46, 0.9);
+
+  --primary-text-color: #e0e0e0;
+  --secondary-text-color: #a0a0b0;
+  --border-color: #333344;
+
+  --purple-theme: #bb86fc;
+  --purple-hover: #d1afff;
+  --purple-light: rgba(187, 134, 252, 0.1);
+
+  --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+  --toast-bg: #1e1e2e;
+}
+
+.theme-switch-wrapper {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .sun-icon {
+  display: none;
+}
+[data-theme="dark"] .moon-icon {
+  display: block !important;
+}
+[data-theme="light"] .sun-icon {
+  display: block !important;
+}
+[data-theme="light"] .moon-icon {
+  display: none;
 }
 
 * {
@@ -121,7 +159,7 @@ body {
 
 .nav-item:hover {
   color: var(--primary-text-color);
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--purple-light);
 }
 
 .nav-item.active {
@@ -274,7 +312,7 @@ body {
   display: flex;
   gap: 16px;
   margin-bottom: 32px;
-  background: #fff;
+  background: var(--panel-bg);
   padding: 16px 24px;
   border-radius: var(--radius-sm);
   align-items: center;
@@ -351,7 +389,7 @@ body {
   align-items: center;
   cursor: pointer;
   padding: 8px 12px;
-  background: #fff;
+  background: var(--panel-bg);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
 }
@@ -410,7 +448,7 @@ body {
 }
 .input-wrapper input {
   width: 100%;
-  background: #fff;
+  background: var(--panel-bg);
   border: 1px solid var(--border-color);
   color: var(--primary-text-color);
   font-size: 1.1rem;
@@ -459,7 +497,7 @@ body {
 }
 
 .analysis-results {
-  background: #fff;
+  background: var(--panel-bg);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
   padding: 24px;
@@ -494,7 +532,7 @@ body {
   z-index: 1000;
 }
 .modal-content {
-  background: #fff;
+  background: var(--panel-bg);
   padding: 24px;
   border-radius: var(--radius-md);
   text-align: center;
@@ -508,7 +546,7 @@ body {
   position: fixed;
   bottom: 32px;
   right: 32px;
-  background: #fff;
+  background: var(--toast-bg);
   border: 1px solid var(--border-color);
   color: var(--primary-text-color);
   padding: 12px 24px;
