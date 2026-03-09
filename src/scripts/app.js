@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const pgLower = document.getElementById("pgLower");
   const pgNumbers = document.getElementById("pgNumbers");
   const pgSymbols = document.getElementById("pgSymbols");
+  const pgUtf8 = document.getElementById("pgUtf8");
   const pgAllCheck = document.getElementById("pgAllCheck");
   const pgLength = document.getElementById("pgLength");
   const pgLengthVal = document.getElementById("pgLengthVal");
@@ -120,18 +121,34 @@ document.addEventListener("DOMContentLoaded", () => {
   const lowerCaseChars = "abcdefghijklmnopqrstuvwxyz";
   const numberChars = "0123456789";
   const symbolChars = "!@#$%^&*()_+-=[]{}|;:,.<>?";
+  const utf8Chars = "©®™±÷×∆Ω∑∏∞≈≠≡≤≥∂∫√⊕⊗★☆☺☹❤✌✍⚒⚓⚔⚖⚙";
 
   function getRandomInt(max) {
     const array = new Uint32Array(1);
-    window.crypto.getRandomValues(array);
-    return array[0] % max;
+    let randomValue;
+    const limit = Math.floor(0xffffffff / max) * max;
+
+    do {
+      window.crypto.getRandomValues(array);
+      randomValue = array[0];
+    } while (randomValue >= limit);
+
+    return randomValue % max;
+  }
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = getRandomInt(i + 1);
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
   }
 
   if (pgGenerateBtn) {
     pgGenerateBtn.addEventListener("click", () => {
       const length = parseInt(pgLength.value);
       let charSet = "";
-      let password = "";
+      let passwordParts = [];
 
       if (
         !pgUpper.checked &&
@@ -145,29 +162,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (pgUpper.checked) {
         charSet += upperCaseChars;
-        password += upperCaseChars[getRandomInt(upperCaseChars.length)];
+        passwordParts.push(upperCaseChars[getRandomInt(upperCaseChars.length)]);
       }
       if (pgLower.checked) {
         charSet += lowerCaseChars;
-        password += lowerCaseChars[getRandomInt(lowerCaseChars.length)];
+        passwordParts.push(lowerCaseChars[getRandomInt(lowerCaseChars.length)]);
       }
       if (pgNumbers.checked) {
         charSet += numberChars;
-        password += numberChars[getRandomInt(numberChars.length)];
+        passwordParts.push(numberChars[getRandomInt(numberChars.length)]);
       }
       if (pgSymbols.checked) {
         charSet += symbolChars;
-        password += symbolChars[getRandomInt(symbolChars.length)];
+        passwordParts.push(symbolChars[getRandomInt(symbolChars.length)]);
+      }
+      if (pgUtf8.checked) {
+        charSet += utf8Chars;
+        passwordParts.push(utf8Chars[getRandomInt(utf8Chars.length)]);
       }
 
-      for (let i = password.length; i < length; i++) {
-        password += charSet[getRandomInt(charSet.length)];
+      for (let i = passwordParts.length; i < length; i++) {
+        passwordParts.push(charSet[getRandomInt(charSet.length)]);
       }
 
-      password = password
-        .split("")
-        .sort(() => getRandomInt(2) - 0.5)
-        .join("");
+      const password = shuffleArray(passwordParts).join("");
 
       pgOutput.textContent = password;
     });
