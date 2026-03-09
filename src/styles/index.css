@@ -566,48 +566,76 @@ body {
 @media (max-width: 768px) {
   .app-layout {
     flex-direction: column;
+    height: 100dvh;
   }
 
   .sidebar {
     width: 100%;
     height: auto;
-    padding: 16px;
-    flex-direction: row;
-    align-items: center;
+    padding: 12px 12px 10px;
+    flex-direction: column;
+    align-items: stretch;
     border-right: none;
     border-bottom: 1px solid var(--border-color);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    gap: 10px;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(6px);
   }
 
   .brand {
     padding: 0;
-    margin-right: auto;
+    margin-right: 0;
+    justify-content: center;
   }
 
   .brand-logo {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
   }
   .brand-titles h1 {
     font-size: 1rem;
+  }
+  .brand-titles p {
+    display: none;
   }
 
   .nav-menu {
     flex-direction: row;
     padding: 0;
-    gap: 8px;
+    gap: 10px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-menu::-webkit-scrollbar {
+    display: none;
+  }
+
+  .theme-switch-wrapper {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    margin-left: 2px;
   }
 
   .nav-item {
-    padding: 8px;
-    border-radius: 50%;
-  }
-
-  .nav-item {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 10px;
+    border-radius: 12px;
     font-size: 0;
+    justify-content: center;
+    flex: 0 0 auto;
   }
+
   .nav-item svg {
     margin: 0;
+  }
+
+  .theme-text {
+    display: none;
   }
 
   .sidebar-footer {
@@ -615,10 +643,121 @@ body {
   }
 
   .main-content {
-    padding: 24px 16px;
+    padding: 20px 14px 28px;
+    overflow-x: hidden;
+  }
+
+  .view-section {
+    max-width: 100%;
+  }
+
+  .section-header {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+  }
+
+  .section-header h2 {
+    font-size: 1.35rem;
+  }
+
+  .hero-header {
+    margin-bottom: 24px;
+  }
+
+  .hero-header h2 {
+    font-size: 1.7rem;
+    line-height: 1.25;
+  }
+
+  .hero-header .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .action-cards {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .action-card {
+    padding: 18px;
+  }
+
+  .workspace-panel {
+    padding: 18px 14px;
+    border-radius: 14px;
+  }
+
+  .result-display {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 14px;
+    margin-bottom: 22px;
+  }
+
+  .password-output {
+    font-size: 1.05rem;
+  }
+
+  .icon-btn {
+    align-self: flex-end;
   }
 
   .toggles-group {
     grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .toggle-control {
+    min-height: 46px;
+    padding: 10px 12px;
+  }
+
+  .analysis-results {
+    padding: 16px;
+  }
+
+  .toast {
+    left: 12px;
+    right: 12px;
+    bottom: 14px;
+    width: auto;
+    padding: 12px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    padding: 10px 10px 8px;
+  }
+
+  .brand {
+    justify-content: flex-start;
+  }
+
+  .brand-logo {
+    width: 30px;
+    height: 30px;
+  }
+
+  .brand-titles h1 {
+    font-size: 0.95rem;
+  }
+
+  .main-content {
+    padding: 16px 12px 22px;
+  }
+
+  .hero-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .workspace-panel {
+    padding: 14px 12px;
+  }
+
+  .primary-btn {
+    padding: 11px 18px;
+    font-size: 0.95rem;
   }
 }
