@@ -1,0 +1,21 @@
+{
+  "name": "SecurePGM - Simple Password Manager",
+  "short_name": "SecurePGM",
+  "description": "Generate strong passwords and check their strength locally.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f8f9fa",
+  "theme_color": "#770077",
+  "icons": [
+    {
+      "src": "Resources/favicon/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "Resources/favicon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
